@@ -1,0 +1,12 @@
+server:
+  error:
+    include-message: always
+spring:
+  datasource:
+    url: jdbc:h2:mem:logging-service-db
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
