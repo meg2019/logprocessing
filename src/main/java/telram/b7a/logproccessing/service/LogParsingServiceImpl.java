@@ -24,8 +24,17 @@ public class LogParsingServiceImpl implements LogParsingService {
     @Override
     public Map<LocalDate, Integer> countSuccessEvents(LocalDate dateBefore, LocalDate dateAfter) {
         List<Log> allEvents = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
-        return allEvents.stream().collect(groupingBy(Log::getCreated,
-                reducing(0, e1 -> e1.isSuccess() ? 1 : 0, Integer::sum)));
+        return allEvents.stream()
+                .collect(groupingBy(Log::getCreated,
+                        reducing(0, logEntry -> logEntry.isSuccess() ? 1 : 0, Integer::sum)));
+    }
+
+    @Override
+    public Map<LocalDate, Integer> countUnSuccessEvents(LocalDate dateBefore, LocalDate dateAfter) {
+        List<Log> allEvents = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
+        return allEvents.stream()
+                .collect(groupingBy(Log::getCreated,
+                        reducing(0, logEntry -> logEntry.isSuccess() ? 0 : 1, Integer::sum)));
     }
 
 }
