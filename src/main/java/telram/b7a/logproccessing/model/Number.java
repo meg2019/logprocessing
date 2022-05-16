@@ -26,6 +26,6 @@ public class Number {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cnt_id")
-    private Country country;
+    private CountryEntity country;
 
 }

@@ -1,5 +1,7 @@
 package telram.b7a.logproccessing.service;
 
+import telram.b7a.logproccessing.model.Country;
+import telram.b7a.logproccessing.model.CountryEntity;
 import telram.b7a.logproccessing.model.Log;
 
 import java.time.LocalDate;
@@ -10,4 +12,7 @@ public interface LogParsingService {
     List<Log> getEventsBetweenDate(LocalDate dateBefore, LocalDate dateAfter);
     Map<LocalDate, Integer> countSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
     Map<LocalDate, Integer> countUnSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
+
+    List<Country>getAllCountries();
+
 }
