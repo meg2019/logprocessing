@@ -21,7 +21,7 @@ public class Log {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usr_id")
-    private User user;
+    private UserEntity user;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "num_id")

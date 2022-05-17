@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import telram.b7a.logproccessing.model.Country;
+import telram.b7a.logproccessing.model.User;
 import telram.b7a.logproccessing.service.LogParsingService;
 
 import java.time.LocalDate;
@@ -39,6 +40,10 @@ public class LogProcessingController {
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
         return logParsingService.getAllCountries();
+    }
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return logParsingService.getAllUsers();
     }
 
 

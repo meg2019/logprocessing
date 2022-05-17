@@ -3,11 +3,12 @@ package telram.b7a.logproccessing.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import telram.b7a.logproccessing.mapper.CountryToCountryModelMapper;
-import telram.b7a.logproccessing.model.CountryEntity;
-import telram.b7a.logproccessing.model.Log;
+import telram.b7a.logproccessing.mapper.UserToUserEntityMapper;
+import telram.b7a.logproccessing.model.*;
 import telram.b7a.logproccessing.repository.CountryRepository;
 import telram.b7a.logproccessing.repository.LogRepository;
-import telram.b7a.logproccessing.model.Country;
+import telram.b7a.logproccessing.repository.UserRepository;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,9 @@ import static java.util.stream.Collectors.*;
 public class LogParsingServiceImpl implements LogParsingService {
     private final LogRepository logRepository;
     private final CountryRepository countryRepository;
+    private final UserRepository userRepository;
     private final CountryToCountryModelMapper countryModelMapper;
+    private final UserToUserEntityMapper userEntityMapper;
 
     @Override
     public List<Log> getEventsBetweenDate(LocalDate dateBefore, LocalDate dateAfter) {
@@ -48,6 +51,14 @@ public class LogParsingServiceImpl implements LogParsingService {
         Iterable<CountryEntity> iterable = countryRepository.findAll();
         return StreamSupport.stream(iterable.spliterator(), false)
                 .map(countryModelMapper::countryEntityToCountry)
+                .collect(toList());
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        Iterable<UserEntity> iterable = userRepository.findAll();
+        return StreamSupport.stream(iterable.spliterator(), false)
+                .map(userEntityMapper::userEntityToUser)
                 .collect(toList());
     }
 
