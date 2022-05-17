@@ -7,6 +7,6 @@ import java.time.LocalDate;
 public class User {
     int id;
     String name;
-    boolean isActive;
+    boolean active;
     LocalDate created;
 }

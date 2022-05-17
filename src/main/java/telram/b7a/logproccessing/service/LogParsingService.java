@@ -11,11 +11,14 @@ import java.util.Map;
 
 public interface LogParsingService {
     List<Log> getEventsBetweenDate(LocalDate dateBefore, LocalDate dateAfter);
-    Map<LocalDate, Integer> countSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
-    Map<LocalDate, Integer> countUnSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
-    List<Country>getAllCountries();
-    List<User>getAllUsers();
 
+    Map<LocalDate, Integer> countSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
+
+    Map<LocalDate, Integer> countUnSuccessEvents(LocalDate dateBefore, LocalDate dateAfter);
+
+    List<Country> getAllCountries();
+
+    List<User> getAllUsers();
 
 
 }

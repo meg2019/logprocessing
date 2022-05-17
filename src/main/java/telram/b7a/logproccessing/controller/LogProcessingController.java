@@ -37,10 +37,12 @@ public class LogProcessingController {
         LocalDate endDate = LocalDate.parse(endString, dateTimeFormatter);
         return logParsingService.countUnSuccessEvents(startDate, endDate);
     }
+
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
         return logParsingService.getAllCountries();
     }
+
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return logParsingService.getAllUsers();
