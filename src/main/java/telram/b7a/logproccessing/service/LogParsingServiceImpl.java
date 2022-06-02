@@ -1,6 +1,7 @@
 package telram.b7a.logproccessing.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import telram.b7a.logproccessing.mapper.CountryToCountryModelMapper;
 import telram.b7a.logproccessing.mapper.UserToUserEntityMapper;
@@ -27,21 +28,23 @@ public class LogParsingServiceImpl implements LogParsingService {
 
     @Override
     public List<Log> getEventsBetweenDate(LocalDate dateBefore, LocalDate dateAfter) {
-        return logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
+        Iterable<Log> iterable = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
+        return StreamSupport.stream(iterable.spliterator(), false)
+                .collect(toList());
     }
 
     @Override
     public Map<LocalDate, Integer> countSuccessEvents(LocalDate dateBefore, LocalDate dateAfter) {
-        List<Log> allEvents = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
-        return allEvents.stream()
+        Iterable<Log> iterable = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
+        return StreamSupport.stream(iterable.spliterator(), false)
                 .collect(groupingBy(Log::getCreated,
                         reducing(0, logEntry -> logEntry.isSuccess() ? 1 : 0, Integer::sum)));
     }
 
     @Override
     public Map<LocalDate, Integer> countUnSuccessEvents(LocalDate dateBefore, LocalDate dateAfter) {
-        List<Log> allEvents = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
-        return allEvents.stream()
+        Iterable<Log> iterable = logRepository.findAllByCreatedBetween(dateBefore, dateAfter);
+        return StreamSupport.stream(iterable.spliterator(), false)
                 .collect(groupingBy(Log::getCreated,
                         reducing(0, logEntry -> logEntry.isSuccess() ? 0 : 1, Integer::sum)));
     }
@@ -56,11 +59,11 @@ public class LogParsingServiceImpl implements LogParsingService {
 
     @Override
     public List<User> getAllUsers() {
+//      Iterable<UserEntity> iterable = userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
         Iterable<UserEntity> iterable = userRepository.findAll();
         return StreamSupport.stream(iterable.spliterator(), false)
                 .map(userEntityMapper::userEntityToUser)
                 .collect(toList());
     }
-
 
 }
