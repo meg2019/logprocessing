@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/logs")
+//@RequestMapping("/logs")
 @RequiredArgsConstructor
 public class LogProcessingController {
     private final LogParsingService logParsingService;
