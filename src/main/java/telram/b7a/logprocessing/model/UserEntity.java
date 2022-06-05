@@ -1,4 +1,4 @@
-package telram.b7a.logproccessing.model;
+package telram.b7a.logprocessing.model;
 
 import lombok.Data;
 

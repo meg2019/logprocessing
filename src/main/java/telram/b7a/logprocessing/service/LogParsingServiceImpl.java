@@ -1,14 +1,13 @@
-package telram.b7a.logproccessing.service;
+package telram.b7a.logprocessing.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import telram.b7a.logproccessing.mapper.CountryToCountryModelMapper;
-import telram.b7a.logproccessing.mapper.UserToUserEntityMapper;
-import telram.b7a.logproccessing.model.*;
-import telram.b7a.logproccessing.repository.CountryRepository;
-import telram.b7a.logproccessing.repository.LogRepository;
-import telram.b7a.logproccessing.repository.UserRepository;
+import telram.b7a.logprocessing.mapper.CountryToCountryModelMapper;
+import telram.b7a.logprocessing.mapper.UserToUserEntityMapper;
+import telram.b7a.logprocessing.model.*;
+import telram.b7a.logprocessing.repository.CountryRepository;
+import telram.b7a.logprocessing.repository.LogRepository;
+import telram.b7a.logprocessing.repository.UserRepository;
 
 import java.time.LocalDate;
 import java.util.List;

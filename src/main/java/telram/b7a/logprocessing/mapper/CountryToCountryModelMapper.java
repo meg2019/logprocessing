@@ -1,8 +1,8 @@
-package telram.b7a.logproccessing.mapper;
+package telram.b7a.logprocessing.mapper;
 
 import org.mapstruct.Mapper;
-import telram.b7a.logproccessing.model.Country;
-import telram.b7a.logproccessing.model.CountryEntity;
+import telram.b7a.logprocessing.model.Country;
+import telram.b7a.logprocessing.model.CountryEntity;
 
 @Mapper(componentModel = "spring")
 public interface CountryToCountryModelMapper {

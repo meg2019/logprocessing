@@ -1,5 +1,6 @@
-package telram.b7a.logproccessing.model;
+package telram.b7a.logprocessing.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Log {
     @Column(name = "log_success")
     private boolean isSuccess;
     @Column(name = "log_created")
+    @ApiModelProperty(required = true,example = "2016-01-01")
     private LocalDate created;
 
     @ManyToOne(cascade = CascadeType.ALL)

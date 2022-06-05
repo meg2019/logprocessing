@@ -1,9 +1,8 @@
-package telram.b7a.logproccessing.service;
+package telram.b7a.logprocessing.service;
 
-import telram.b7a.logproccessing.model.Country;
-import telram.b7a.logproccessing.model.Log;
-import telram.b7a.logproccessing.model.User;
-import telram.b7a.logproccessing.model.UserEntity;
+import telram.b7a.logprocessing.model.Country;
+import telram.b7a.logprocessing.model.Log;
+import telram.b7a.logprocessing.model.User;
 
 import java.time.LocalDate;
 import java.util.List;
