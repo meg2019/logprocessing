@@ -10,3 +10,7 @@ spring:
   h2:
     console:
       enabled: true
+springfox:
+  documentation:
+    swagger-ui:
+      base-url: docs

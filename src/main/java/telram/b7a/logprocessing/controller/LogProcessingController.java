@@ -29,16 +29,14 @@ public class LogProcessingController {
     @ApiOperation(value = "Get LogEntity with result is successful")
     public Map<LocalDate, Integer> getSuccessEventsBetweenDates(
 
-            @ApiParam(name =  "Start Date",
-                    type = "String",
+            @ApiParam(type = "String",
                     value = "Start date for log entities",
-                    example = "2021-12-30",
+                    example = "2021-01-20",
                     required = true)
             @RequestParam(name = "startDate") String startString,
-            @ApiParam(name =  "End Date",
-                    type = "String",
+            @ApiParam(type = "String",
                     value = "End date for log entities",
-                    example = "2022-01-05",
+                    example = "2021-01-21",
                     required = true)
             @RequestParam(name = "endDate") String endString) {
 
@@ -51,16 +49,14 @@ public class LogProcessingController {
     @ApiOperation(value = "Get LogEntity with result is Unsuccessful")
     public Map<LocalDate, Integer> getUnSuccessEventsBetweenDates(
 
-            @ApiParam(name =  "Start Date",
-                    type = "String",
+            @ApiParam(type = "String",
                     value = "Start date for log entities",
-                    example = "2021-12-30",
+                    example = "2021-01-20",
                     required = true)
             @RequestParam(name = "startDate") String startString,
-            @ApiParam(name =  "End Date",
-                    type = "String",
+            @ApiParam(type = "String",
                     value = "End date for log entities",
-                    example = "2022-01-05",
+                    example = "2021-01-21",
                     required = true)
             @RequestParam(name = "endDate") String endString) {
         LocalDate startDate = LocalDate.parse(startString, dateTimeFormatter);

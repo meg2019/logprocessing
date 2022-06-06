@@ -13,12 +13,14 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "log_id")
     private int id;
+
     @Column(name = "log_message")
     private String message;
+
     @Column(name = "log_success")
     private boolean isSuccess;
+
     @Column(name = "log_created")
-    @ApiModelProperty(required = true,example = "2016-01-01")
     private LocalDate created;
 
     @ManyToOne(cascade = CascadeType.ALL)
